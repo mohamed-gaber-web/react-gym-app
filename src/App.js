@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+
+import { Box } from '@mui/material';
+import { Routes, Route } from 'react-router-dom'; 
+import Home from './pages/Home';
+import ExerciseDetails from './pages/ExerciseDetails';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box width='400px' sx={{ width: { xl: '1488px' } }}> 
+      <NavBar />
+      
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/exercise/:id' element={<ExerciseDetails />} />
+      </Routes>
+      <Footer />
+    </Box>
   );
 }
 
 export default App;
+
+/**
+ * read topic 
+ * Material UI - MUI
+ * Box is wraper component for most css style is need
+ * Stack Component Like Navbar
+ * sx is a custom style css
+ */
